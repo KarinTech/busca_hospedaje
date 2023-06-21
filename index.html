@@ -1,0 +1,39 @@
+<!-- lista.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Hospedajes</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Hospedajes</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Nombre</th>
+                <th>Localidad/Zona</th>
+                <th>Precio por Noche</th>
+                <th>Imagen</th>
+                <th>Reservar en Booking.com</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hospedaje in hospedajes %}
+            <tr>
+                <td>{{ hospedaje.id }}</td>
+                <td>{{ hospedaje.descripcion }}</td>
+                <td>{{ hospedaje.nombre }}</td>
+                <td>{{ hospedaje.localidad_zona }}</td>
+                <td>{{ hospedaje.precio_noche }}</td>
+                <td><img src="{{ hospedaje.img }}" alt="Imagen de Hospedaje"></td>
+                <td><a href="{{ hospedaje.reservar_en }}" target="_blank">Reservar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
